@@ -3,6 +3,16 @@
 
     function chatService($rootScope, $http, $q) {
 
+        this.getAllMessages = function () {
+            var deferrred = $q.defer();
+            $http.get("api/User/GetAllMessages").success(function (data) {
+                deferrred.resolve(data);
+            }).error(function (data) {
+                deferrred.reject(data);
+            });
+            return deferrred.promise;
+        };
+
         this.getAllUsersMessages = function () {
             var deferrred = $q.defer();
             $http.get("api/Chat/GetAllUsersMessages").success(function (data) {

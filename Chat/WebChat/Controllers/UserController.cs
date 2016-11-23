@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Storage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -12,10 +13,22 @@ namespace WebChat.Controllers
     {
         Storage.Storage chatStorage = new Storage.Storage();
 
-        [HttpPost]
-        public bool IsNameFree(UserViewModel user)
+        [HttpGet]
+        public List<Message> GetAllMessages()
         {
-            return chatStorage.GetUserByUniqueName(user.UniqueName) == null;
+            return chatStorage.GetAllMessages();
+        }
+        
+
+        [HttpPost]
+        public bool IsNameFreeAdd(UserViewModel user)
+        {
+            if (chatStorage.GetUserByUniqueName(user.UniqueName) == null)
+            {
+                chatStorage.AddUser(new Storage.User() { UniqueName = user.UniqueName });
+                return true;
+            }
+            return false;
         }
     }
 }

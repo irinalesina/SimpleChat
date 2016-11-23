@@ -3,7 +3,7 @@
 
     var chatController = function ($scope, $rootScope, chatService) {
 
-        chatService.getAllUsersMessages().then(function (value) {
+        chatService.getAllMessages().then(function (value) {
             $scope.chatMessages = value;
         });;
 

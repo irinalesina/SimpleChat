@@ -8,22 +8,30 @@ using System.Xml.Serialization;
 
 namespace Storage
 {
+    [Serializable]
     public class User
     {
         private static readonly int messagesCount = 10;
+        [XmlAttribute]
         public string UniqueName { get; set; }
-        public string Password { get; set; }
-        private Queue<Message> messages;
 
-        public User()
+        private Queue<Message> messages = new Queue<Message>();
+
+        [XmlArray("Messages")]
+        [XmlArrayItem("Message", typeof(Message))]
+        public List<Message> Messages
         {
-            messages = new Queue<Message>();
+            get
+            {
+                return messages.ToList();
+            }
+            set
+            {
+                messages = new Queue<Message>(value);
+            }
         }
 
-        public List<Message> GetMessages()
-        {
-            return messages.ToList();
-        }
+
         public void AddMessage(Message message)
         {
             if (messages.Count == User.messagesCount)

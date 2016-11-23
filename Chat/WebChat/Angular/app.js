@@ -34,12 +34,13 @@
                             'Content-Type': 'application/json'
                         }
                     }
-                    $http.post("api/User/IsNameFree", user, config).success(function (data) {
+                    $http.post("api/User/IsNameFreeAdd", user, config).success(function (data) {
                             $rootScope.userUniqueName = result;
                         }).error(function (data) {
                         });
                     });
                 //} while ($rootScope.userUniqueName === undefined);
+
             }
         }
     ]);

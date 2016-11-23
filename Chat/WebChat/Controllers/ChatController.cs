@@ -24,7 +24,10 @@ namespace WebChat.Controllers
         [HttpPost]
         public void AddNewUserMessage(MessageViewModel sendMessage)
         {
-            chatStorage.AddMessage(chatStorage.GetUserByUniqueName(sendMessage.UserUniqueName), new Message() { Text = sendMessage.Text, AddDateTime = sendMessage.AddDateTime });
+            User user = chatStorage.GetUserByUniqueName(sendMessage.UserUniqueName);
+            if (user == null)
+                user = new User() { UniqueName = sendMessage.UserUniqueName };
+            chatStorage.AddMessage(user, new Message() { Text = sendMessage.Text, AddDateTime = sendMessage.AddDateTime });
         }
     }
 }

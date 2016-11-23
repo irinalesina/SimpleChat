@@ -12,10 +12,12 @@ namespace Storage
     {
         private static readonly int allMessagesCount = 20;
         private static readonly string storageUrl = "chatStorage.xml";
+        [XmlArray("Users")]
+        [XmlArrayItem("User", typeof(User))]
         private static List<User> users = new List<User>();
         
 
-        public Storage()
+        static Storage()
         {
             Storage.GetData();
         }
@@ -23,7 +25,7 @@ namespace Storage
 
         public void AddUser(User user)
         {
-            if (Storage.users.Find(u => u.UniqueName == user.UniqueName)== null)
+            if (Storage.users.Find(u => u.UniqueName == user.UniqueName) != null)
                 throw new InvalidOperationException("User with this name already exist!");
             Storage.users.Add(user);
             Storage.SaveChanges();
@@ -37,7 +39,7 @@ namespace Storage
 
         public List<Message> GetUserMessages(User user)
         {
-            return user.GetMessages();
+            return user.Messages;
         }
 
 
@@ -46,7 +48,7 @@ namespace Storage
             List<Message> allMessages = new List<Message>();
             foreach (var user in Storage.users)
             {
-                allMessages.AddRange(user.GetMessages());
+                allMessages.AddRange(user.Messages);
             }
             allMessages.Sort(delegate (Message a, Message b) 
             {
@@ -65,24 +67,43 @@ namespace Storage
 
         private static void SaveChanges()
         {
-            List<User> users;
-            XmlSerializer formatter = new XmlSerializer(typeof(List<User>));
+            XmlSerializer formatter = new XmlSerializer(typeof(List<XmlMessage>));
 
             using (FileStream fs = new FileStream(storageUrl, FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fs, Storage.users);
+                List<XmlMessage> messages = new List<XmlMessage>();
+                foreach (var user in users)
+                {
+                    foreach (var message in user.Messages)
+                    {
+                        messages.Add(new XmlMessage() { UserName = user.UniqueName, Text = message.Text, AddDateTime = message.AddDateTime });
+                    }
+                }
+                formatter.Serialize(fs, messages);
             }
         }
 
 
         private static void GetData()
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(List<User>));
+            XmlSerializer formatter = new XmlSerializer(typeof(List<XmlMessage>));
 
             using (FileStream fs = new FileStream(storageUrl, FileMode.OpenOrCreate))
             {
                 if (fs.Length != 0)
-                    Storage.users = (List<User>)formatter.Deserialize(fs);
+                {
+                    var xmlMessages = (List<XmlMessage>)formatter.Deserialize(fs);
+                    foreach (var xmlMessage in xmlMessages.GroupBy(x => x.UserName))
+                    {
+                        var user = new User() { UniqueName = xmlMessage.Key };
+                        foreach (var message in xmlMessage)
+                        {
+                            user.AddMessage(new Message() { Text = message.Text, AddDateTime = message.AddDateTime });
+                        }
+                        Storage.users.Add(user);
+                    }
+                }
+                   
             }
         }
     }
