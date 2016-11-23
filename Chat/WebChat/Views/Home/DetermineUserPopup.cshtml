@@ -1,0 +1,30 @@
+﻿@model Storage.User
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" style="text-align:center">Login or register to continue</h4>
+    </div>
+    <div class="modal-body" align="center">
+        @using (Ajax.BeginForm("AddDetail", "Home", new AjaxOptions { HttpMethod = "POST", OnSuccess = "Index" }))
+        {
+            <div id="determineUserPopup">
+                <div class="form-group">
+                        @Html.LabelFor(model => model.UniqueName)
+                    <br />
+                        @Html.EditorFor(model => model.UniqueName)
+                </div>
+
+                <div class="form-group">
+                        @Html.LabelFor(model => model.Password)
+                    <br />
+                        @Html.EditorFor(model => model.Password)
+                </div>
+
+                <div class="form-group">
+                        <button type="submit" id="login" class="btn btn-primary">Login</button>
+                        <button type="submit" id="register" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>

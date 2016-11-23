@@ -1,0 +1,52 @@
+﻿body {
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.message-bubble 
+{
+    padding: 10px 0px 10px 0px;
+}
+
+.message-bubble:nth-child(even) { background-color: #F5F5F5; }
+
+.message-bubble > *
+{
+    padding-left: 10px;    
+}
+
+.panel-body { padding: 0px; }
+
+.panel-heading { background-color: #3d6da7 !important; color: white !important; }

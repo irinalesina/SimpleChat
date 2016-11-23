@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            &nbsp;
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="panel panel-primary" ng-controller="chatController">
+                        <div class="panel-heading" style="padding:0 0 0 8px;">
+                            <h6 class="panel-title" style="display:inline;">Chat</h6>
+                        </div>
+                        <div class="panel-body" style="padding:0 4px;">
+                            <div class="row">
+                                <div class="col-xs-12" style="max-height:500px;max-width:100%;overflow-y:auto;overflow-x:auto;">
+                                    <table class="table table-hover table-condensed" style="">
+                                        <tr ng-hide="chatMessages.length === 0" ng-repeat="chat in chatMessages | orderBy:origDt"
+                                            style="min-width:100%;max-width:100%;width:100%;">
+                                            <td>
+                                                <h6>{{chat.username}}</h6>
+                                            </td>
+                                            <td>
+                                                <p class="word-wrap:break-word"><small>{{chat.text}}</small></p>
+                                            </td>
+                                        </tr>
+                                        <tr ng-show="chatMessages.length === 0">
+                                            <td>
+                                                <p>Nothin' here. <strong>Say something!</strong></p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <form>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control" ng-model="newChatMsg" placeholder="..." />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit" ng-click="addMessage()">Send</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
