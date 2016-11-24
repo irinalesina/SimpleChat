@@ -11,7 +11,8 @@ namespace WebChat.Controllers
 {
     public class UserController : ApiController
     {
-        Storage.Storage chatStorage = new Storage.Storage();
+        XmlStorage chatStorage = new XmlStorage();
+
 
         [HttpGet]
         public List<Message> GetAllMessages()
@@ -21,11 +22,11 @@ namespace WebChat.Controllers
         
 
         [HttpPost]
-        public bool IsNameFreeAdd(UserViewModel user)
+        public bool IfAddedNameFreeAdd(UserViewModel user)
         {
             if (chatStorage.GetUserByUniqueName(user.UniqueName) == null)
             {
-                chatStorage.AddUser(new Storage.User() { UniqueName = user.UniqueName });
+                chatStorage.AddUser(new User() { UniqueName = user.UniqueName });
                 return true;
             }
             return false;

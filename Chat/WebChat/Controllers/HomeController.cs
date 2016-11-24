@@ -9,7 +9,7 @@ namespace WebChat.Controllers
 {
     public class HomeController : Controller
     {
-        Storage.Storage chatStorage = new Storage.Storage();
+        XmlStorage chatStorage = new XmlStorage();
         public ActionResult Index()
         {
             return View();
@@ -17,7 +17,7 @@ namespace WebChat.Controllers
 
         public ActionResult UserMessages()
         {
-            var userMessages = chatStorage.GetUserMessages(new User()); //change new User to user from cookie
+            var userMessages = chatStorage.GetUserMessages("demo");
             return View();
         }
 
@@ -26,13 +26,6 @@ namespace WebChat.Controllers
             var allMessages = chatStorage.GetAllMessages();
             return View();
         }
-
-        [HttpGet]
-        public ActionResult DetermineUser()
-        {
-            return PartialView("DetermineUserPopup", new User());
-        }
-
     }
 
 }

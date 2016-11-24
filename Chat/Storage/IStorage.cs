@@ -9,8 +9,8 @@ namespace Storage
     interface IStorage
     {
         void AddUser(User user);
-        List<Message> GetUserMessages(User user);
+        List<Message> GetUserMessages(string user);
         List<Message> GetAllMessages();
-        void AddMessage(User user, Message message);
+        void AddMessage(Message message);
     }
 }

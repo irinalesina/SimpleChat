@@ -12,7 +12,7 @@ namespace WebChat.Controllers
     
     public class ChatController : ApiController
     {
-        Storage.Storage chatStorage = new Storage.Storage();
+        Storage.XmlStorage chatStorage = new Storage.XmlStorage();
 
         
         [HttpGet]
@@ -21,13 +21,11 @@ namespace WebChat.Controllers
             return chatStorage.GetAllMessages();
         }
         
+
         [HttpPost]
         public void AddNewUserMessage(MessageViewModel sendMessage)
         {
-            User user = chatStorage.GetUserByUniqueName(sendMessage.UserUniqueName);
-            if (user == null)
-                user = new User() { UniqueName = sendMessage.UserUniqueName };
-            chatStorage.AddMessage(user, new Message() { Text = sendMessage.Text, AddDateTime = sendMessage.AddDateTime });
+            chatStorage.AddMessage(new Message() { UserUniqueName = sendMessage.UserUniqueName, Text = sendMessage.Text, AddDateTime = sendMessage.AddDateTime });
         }
     }
 }

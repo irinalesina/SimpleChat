@@ -5,7 +5,7 @@
 
         chatService.getAllMessages().then(function (value) {
             $scope.chatMessages = value;
-        });;
+        });
 
 
         $scope.addMessage = function () {

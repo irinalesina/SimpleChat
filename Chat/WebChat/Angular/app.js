@@ -19,29 +19,6 @@
             $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
             $http.defaults.headers.post['dataType'] = 'json'
             $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
-
-            if ($rootScope.userUniqueName === undefined) {
-                
-                var confirm = $mdDialog.prompt()
-                   .title('Enter name to continue')
-                   .placeholder('Name')
-                   .ok('Take the name')
-                //do {
-                $mdDialog.show(confirm).then(function (result) {
-                    var user = { UniqueName: result }
-                    var config = {
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    }
-                    $http.post("api/User/IsNameFreeAdd", user, config).success(function (data) {
-                            $rootScope.userUniqueName = result;
-                        }).error(function (data) {
-                        });
-                    });
-                //} while ($rootScope.userUniqueName === undefined);
-
-            }
         }
     ]);
 

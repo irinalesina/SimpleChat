@@ -185,7 +185,8 @@
   <ItemGroup>
     <Content Include="Angular\chatCtrl.js" />
     <Content Include="Angular\chatService.js" />
-    <Content Include="Angular\startLoadSiteCtrl.js" />
+    <Content Include="Angular\enterNameDialog.html" />
+    <Content Include="Angular\enterNameDialogCtrl.js" />
     <Content Include="Content\angular-material.css" />
     <Content Include="Content\angular-material.layout-attributes.css" />
     <Content Include="Content\angular-material.layout-attributes.min.css" />
@@ -1028,7 +1029,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\UserMessages.cshtml" />
-    <Content Include="Views\Home\DetermineUserPopup.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
