@@ -16,9 +16,6 @@
 
     app.run(['$rootScope', '$location', '$http', '$mdDialog',
         function ($rootScope, $location, $http, $mdDialog) {
-            $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-            $http.defaults.headers.post['dataType'] = 'json'
-            $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
         }
     ]);
 
