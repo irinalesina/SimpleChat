@@ -40,19 +40,12 @@
         this.addNewUserMessage = function (message) {
             var deferrred = $q.defer();
 
-            var sendMessage = {
-                UserUniqueName: message.username,
-                Text: message.text,
-                AddDateTime: message.origDt
-
-            };
-
             var config = {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             }
-            $http.post("api/Chat/AddNewUserMessage", sendMessage, config).success(function (data) {
+            $http.post("api/Chat/AddNewUserMessage", message, config).success(function (data) {
                 deferrred.resolve(data);
             }).error(function (data) {
                 deferrred.reject(data);

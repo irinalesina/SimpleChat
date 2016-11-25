@@ -19,16 +19,16 @@
                         </div>
                         <div class="panel-body" style="padding:0 4px;">
                             <div class="row">
-                                <div class="col-xs-12" style="max-height:500px;max-width:100%;overflow-y:auto;overflow-x:auto;">
+                                <div id="allUsersChat" class="col-xs-12" style="max-height:500px;max-width:100%;overflow-y:auto;overflow-x:auto;">
                                     <table class="table table-hover table-condensed" style="">
-                                        <tr ng-hide="chatMessages.length === 0" ng-repeat="chat in chatMessages | orderBy:origDt"
+                                        <tr ng-hide="chatMessages.length === 0" ng-repeat="chat in chatMessages"
                                             style="min-width:100%;max-width:100%;width:100%;">
-                                            <td>
-                                                <h6>{{chat.username}}</h6>
-                                                <p class="word-wrap:break-word"><small>{{chat.origDt | date:"MM/dd/yyyy 'at' h:mma"}}</small></p>
+                                            <td style="background-color:#b0eefd">
+                                                <h6 style="font-weight:bold">{{chat.UserUniqueName}}</h6>
+                                                <p class="word-wrap:break-word"><small>{{chat.AddDateTime | date:"MM/dd/yyyy 'at' h:mma"}}</small></p>
                                             </td>
                                             <td>
-                                                <p class="word-wrap:break-word"><small>{{chat.text}}</small></p>
+                                                <p class="word-wrap:break-word"><small>{{chat.Text}}</small></p>
                                             </td>
                                         </tr>
                                         <tr ng-show="chatMessages.length === 0">
@@ -59,6 +59,57 @@
         <div class="col-md-4"></div>
     </div>
 </div>
+
+
+@*<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="portlet portlet-default">
+                <div class="portlet-heading">
+                    <div class="portlet-title">
+                        <h4><i class="fa fa-circle text-green"></i> All users chat</h4>
+                    </div>
+                    <div class="portlet-widgets">
+                        <span class="divider"></span>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#chat"><i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="chat" class="panel-collapse collapse in" ng-controller="chatController">
+                    <div>
+                        <div class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 500px;" ng-repeat="chat in chatMessages">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h4 class="media-heading">
+                                                {{chat.UserUniqueName}}
+                                                <span class="small pull-right">{{chat.AddDateTime | date:"MM/dd/yyyy 'at' h:mma"}}</span>
+                                            </h4>
+                                            <p>{{chat.Text}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="portlet-footer">
+                        <form role="form">
+                            <div class="form-group">
+                                <textarea class="form-control" ng-model="newChatMsg" placeholder="Enter message..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-default pull-right" ng-click="addMessage()">Send</button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@                
 
 
     

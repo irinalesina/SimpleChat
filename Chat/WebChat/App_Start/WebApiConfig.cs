@@ -10,14 +10,11 @@ namespace WebChat
         public static void Register(HttpConfiguration config)
         {
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
+                name: "Home",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-            config.Routes.MapHttpRoute(
-              name: "api",
-             routeTemplate: "api/{controller}/{action}"
-              );
+           
         }
     }
 }

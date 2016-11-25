@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Storage
 {
-    [Serializable]
     public class Message
     {
         public string UserUniqueName { get; set; }

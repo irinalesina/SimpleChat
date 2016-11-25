@@ -15,6 +15,7 @@ namespace WebChat
                         "~/Scripts/angular.js",
                         "~/Scripts/angular-animate.js",
                         "~/Scripts/angular-aria.js",
+                        "~/Scripts/angular-cookies.js",
                         "~/Scripts/angular-messages.js",
                         "~/Scripts/angular-material/angular-material.js"));
 

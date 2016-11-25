@@ -11,42 +11,175 @@
 
 
 /* styles for validation helpers */
-.field-validation-error {
-    color: #b94a48;
+
+
+
+/*chat panel*/
+
+/*.portlet {
+    margin-bottom: 15px;
 }
 
-.field-validation-valid {
-    display: none;
+.btn-white {
+    border-color: #cccccc;
+    color: #333333;
+    background-color: #ffffff;
 }
 
-input.input-validation-error {
-    border: 1px solid #b94a48;
+.portlet {
+    border: 1px solid;
 }
 
-input[type="checkbox"].input-validation-error {
-    border: 0 none;
+.portlet .portlet-heading {
+    padding: 0 15px;
 }
 
-.validation-summary-errors {
-    color: #b94a48;
+.portlet .portlet-heading h4 {
+    padding: 1px 0;
+    font-size: 16px;
 }
 
-.validation-summary-valid {
-    display: none;
+.portlet .portlet-heading a {
+    color: #fff;
 }
 
-.message-bubble 
-{
-    padding: 10px 0px 10px 0px;
+.portlet .portlet-heading a:hover,
+.portlet .portlet-heading a:active,
+.portlet .portlet-heading a:focus {
+    outline: none;
 }
 
-.message-bubble:nth-child(even) { background-color: #F5F5F5; }
-
-.message-bubble > *
-{
-    padding-left: 10px;    
+.portlet .portlet-widgets .dropdown-menu a {
+    color: #333;
 }
 
-.panel-body { padding: 0px; }
+.portlet .portlet-widgets ul.dropdown-menu {
+    min-width: 0;
+}
 
-.panel-heading { background-color: #3d6da7 !important; color: white !important; }
+.portlet .portlet-heading .portlet-title {
+    float: left;
+}
+
+.portlet .portlet-heading .portlet-title h4 {
+    margin: 10px 0;
+}
+
+.portlet .portlet-heading .portlet-widgets {
+    float: right;
+    margin: 8px 0;
+}
+
+.portlet .portlet-heading .portlet-widgets .tabbed-portlets {
+    display: inline;
+}
+
+.portlet .portlet-heading .portlet-widgets .divider {
+    margin: 0 5px;
+}
+
+.portlet .portlet-body {
+    padding: 15px;
+    background: #fff;
+}
+
+.portlet .portlet-footer {
+    padding: 10px 15px;
+    background: #e0e7e8;
+}
+
+.portlet .portlet-footer ul {
+    margin: 0;
+}
+
+.portlet-green,
+.portlet-green>.portlet-heading {
+    border-color: #16a085;
+}
+
+.portlet-green>.portlet-heading {
+    color: #fff;
+    background-color: #16a085;
+}
+
+.portlet-orange,
+.portlet-orange>.portlet-heading {
+    border-color: #f39c12;
+}
+
+.portlet-orange>.portlet-heading {
+    color: #fff;
+    background-color: #f39c12;
+}
+
+.portlet-blue,
+.portlet-blue>.portlet-heading {
+    border-color: #2980b9;
+}
+
+.portlet-blue>.portlet-heading {
+    color: #fff;
+    background-color: #2980b9;
+}
+
+.portlet-red,
+.portlet-red>.portlet-heading {
+    border-color: #e74c3c;
+}
+
+.portlet-red>.portlet-heading {
+    color: #fff;
+    background-color: #e74c3c;
+}
+
+.portlet-purple,
+.portlet-purple>.portlet-heading {
+    border-color: #8e44ad;
+}
+
+.portlet-purple>.portlet-heading {
+    color: #fff;
+    background-color: #8e44ad;
+}
+
+.portlet-default,
+.portlet-dark-blue,
+.portlet-default>.portlet-heading,
+.portlet-dark-blue>.portlet-heading {
+    border-color: #34495e;
+}
+
+.portlet-default>.portlet-heading,
+.portlet-dark-blue>.portlet-heading {
+    color: #fff;
+    background-color: #34495e;
+}
+
+.portlet-basic,
+.portlet-basic>.portlet-heading {
+    border-color: #333;
+}
+
+.portlet-basic>.portlet-heading {
+    border-bottom: 1px solid #333;
+    color: #333;
+    background-color: #fff;
+}
+
+@media(min-width:768px) {
+    .portlet {
+        margin-bottom: 30px;
+    }
+}
+
+.text-green {
+    color: #16a085;
+}
+
+.text-orange {
+    color: #f39c12;
+}
+
+.text-red {
+    color: #e74c3c;
+}*/                
